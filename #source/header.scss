@@ -1,0 +1,71 @@
+.header {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: calc(var(--index) * -4.9);
+        z-index: 5;
+        width: 100%;
+        height: calc(var(--index) * 10);
+        background-image: url('../img/ground.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+.layer {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+    will-change: transform;
+		&__header {
+            z-index: 1;
+            transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
+            transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+            will-change: transform;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: var(--text);
+            text-shadow: 0 0 15px var(--shadow);
+		}
+}
+.layers {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+		&__caption {
+            font-size: calc(var(--index) / 1.15 );
+            letter-spacing: calc(var(--index) / 3.5);
+		}
+		&__title {
+            font-size: calc(var(--index) * 2.5);
+            letter-spacing: calc(var(--index) / 2.2);
+            margin-top: calc(var(--index) * -0.4);
+		}
+		&__base {
+            background-image: url('../img/layer-base.png');
+            transform: translate3d(0, calc(var(--scrollTop) /1.5), 0);
+            z-index: 0;
+            will-change: transform;
+		}
+		&__middle {
+            background-image: url('../img/layer-middle.png');
+            transform: translate3d(0, calc(var(--scrollTop) /2.5), 0);
+            will-change: transform;
+		}
+		&__front {
+            background-image: url('../img/layer-front.png');
+            transform: translate3d(0, calc(var(--scrollTop) / 4.9), 0);
+		}
+            will-change: transform;
+}

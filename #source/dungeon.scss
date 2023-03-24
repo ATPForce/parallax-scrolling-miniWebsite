@@ -1,0 +1,39 @@
+.dungeon {
+    min-height: 100vh;
+    background-image: url('../img/dungeon.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    z-index: 3;
+}
+.dungeon-title {
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 7.5);
+    margin-bottom: calc(var(--index) * 1);
+    transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+    transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+    will-change: transform;
+}
+.dungeon-description {
+    max-width: calc(var(--index) * 30);
+    font-size: calc(var(--index) * 0.9);
+    letter-spacing: calc(var(--index) / 35);
+    transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
+    transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+    will-change: transform;
+}
+.dungeon-caption {
+    position: absolute;
+    bottom: calc(var(--index) * 3);
+    opacity: 0.5;
+    font-size: calc(var(--index) * 0.8);
+    letter-spacing: calc(var(--index) / 35);
+}
+
+
